@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Monisha! 🎉</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: #0f0a1e;
+      overflow: hidden;
+    }
+
+    #scene {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+   
+    #bg-balloons {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .balloon {
+      position: absolute;
+      font-size: 36px;
+      animation: floatUp linear infinite;
+      opacity: 0.15;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh) rotate(-10deg); }
+      100% { transform: translateY(-10vh) rotate(10deg); }
+    }
+
+  
+    #btn {
+      font-size: 22px;
+      font-weight: 600;
+      padding: 20px 52px;
+      border-radius: 50px;
+      border: 2px solid #c084fc;
+      background: linear-gradient(135deg, #f0abfc 0%, #a78bfa 100%);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 32px #c084fc88;
+      letter-spacing: 0.03em;
+      position: relative;
+      z-index: 10;
+    }
+    #btn:hover { transform: scale(1.07); box-shadow: 0 8px 40px #c084fcbb; }
+    #btn:active { transform: scale(0.97); }
+
+    
+    .snowflake {
+      position: absolute;
+      top: -30px;
+      color: #fff;
+      font-size: 20px;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 20;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #c084fc;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+  
+    #confetti-wrap {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+    }
+    .conf {
+      position: absolute;
+      top: -20px;
+      border-radius: 2px;
+      animation: confFall linear forwards;
+    }
+    @keyframes confFall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+   
+    #wish {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    #wish h1 {
+      font-size: clamp(36px, 7vw, 56px);
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0abfc, #818cf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    #wish .cake {
+      font-size: 72px;
+      margin: 0.75rem 0;
+      display: block;
+      animation: bounce 1s ease 1.5s both;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.2); }
+    }
+
+    #wish p {
+      font-size: 17px;
+      color: #c4b5e8;
+      max-width: 500px;
+      line-height: 1.8;
+      margin: 0 auto 1.25rem;
+    }
+
+    #wish .tagline {
+      font-size: 15px;
+      color: #c084fc;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+  
+    .stars {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 0.75rem 0;
+    }
+    .star {
+      color: #fbbf24;
+      font-size: 24px;
+      animation: starPop 0.4s ease both;
+    }
+    .star:nth-child(1) { animation-delay: 1.6s; }
+    .star:nth-child(2) { animation-delay: 1.8s; }
+    .star:nth-child(3) { animation-delay: 2.0s; }
+    .star:nth-child(4) { animation-delay: 2.2s; }
+    .star:nth-child(5) { animation-delay: 2.4s; }
+    @keyframes starPop {
+      from { transform: scale(0) rotate(-30deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0deg);   opacity: 1; }
+    }
+
+   
+    #replay {
+      margin-top: 1.5rem;
+      font-size: 14px;
+      padding: 10px 28px;
+      border-radius: 50px;
+      border: 1.5px solid #a78bfa;
+      background: transparent;
+      color: #a78bfa;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: none;
+    }
+    #replay:hover { background: #a78bfa22; }
+  </style>
+</head>
+<body>
+
+<div id="scene">
+
+ 
+  <div id="bg-balloons">
+    <span class="balloon" style="left:4%;  animation-duration:9s;  animation-delay:0s">🎈</span>
+    <span class="balloon" style="left:18%; animation-duration:11s; animation-delay:2s">🎀</span>
+    <span class="balloon" style="left:35%; animation-duration:8s;  animation-delay:4s">🎈</span>
+    <span class="balloon" style="left:55%; animation-duration:13s; animation-delay:1s">🎉</span>
+    <span class="balloon" style="left:72%; animation-duration:10s; animation-delay:3s">🎈</span>
+    <span class="balloon" style="left:88%; animation-duration:9s;  animation-delay:5s">🎀</span>
+    <span class="balloon" style="left:50%; animation-duration:12s; animation-delay:6s">🎊</span>
+  </div>
+
+ 
+  <div id="confetti-wrap"></div>
+
+  
+  <button id="btn" onclick="startShow()">💖 Click the button, Monisha!</button>
+
+  
+  <div id="wish">
+    <span class="cake">🎂</span>
+    <h1>Happy Birthday,<br>Monisha! 💕</h1>
+    <div class="stars">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star"></span>
+    </div>
+    <p>
+        
+      Today is very special for me  🌸<br><br>
+      you entered in my life is very special,I like your funny atitude
+      Your smile is so cute,I like you,<br>“I have a crush on you.” 😊💕 ✨ 
+            I want speek with you lot moni...💖
+     <br><br>
+    
+    </p>
+    <p class="tagline">"A star was born on this very day — and her name is Monisha." 💫
+        I am Abi...
+    </p>
+    <button id="replay" onclick="replayShow()">🔁 Replay the magic</button>
+  </div>
+
+</div>
+
+<script>
+  const snowSymbols = ['❄','❅','❆','✦','✧','·','*'];
+  const confColors  = ['#f0abfc','#818cf8','#f472b6','#fbbf24','#34d399','#60a5fa','#fb923c'];
+  let snowInterval;
+
+  function makeSnowflake() {
+    const el = document.createElement('span');
+    el.className = 'snowflake';
+    el.textContent = snowSymbols[Math.floor(Math.random() * snowSymbols.length)];
+    el.style.left = (Math.random() * 98) + 'vw';
+    const dur = 2 + Math.random() * 2;
+    el.style.animationDuration = dur + 's';
+    el.style.fontSize = (14 + Math.random() * 16) + 'px';
+    el.style.opacity = 0.5 + Math.random() * 0.5;
+    document.getElementById('scene').appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000);
+  }
+
+  function makeConfetti() {
+    const wrap = document.getElementById('confetti-wrap');
+    for (let i = 0; i < 70; i++) {
+      const el = document.createElement('div');
+      el.className = 'conf';
+      el.style.left = (Math.random() * 100) + 'vw';
+      el.style.background = confColors[Math.floor(Math.random() * confColors.length)];
+      const dur = 2.5 + Math.random() * 2;
+      el.style.animationDuration = dur + 's';
+      el.style.animationDelay = (Math.random() * 1.5) + 's';
+      el.style.width  = (6 + Math.random() * 8) + 'px';
+      el.style.height = (6 + Math.random() * 8) + 'px';
+      el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      wrap.appendChild(el);
+      setTimeout(() => el.remove(), (dur + 1.5) * 1000);
+    }
+  }
+
+  function startShow() {
+    document.getElementById('btn').style.display = 'none';
+    snowInterval = setInterval(makeSnowflake, 80);
+    setTimeout(() => {
+      clearInterval(snowInterval);
+      setTimeout(() => {
+        document.querySelectorAll('.snowflake').forEach(el => el.remove());
+        showWish();
+      }, 800);
+    }, 3000);
+  }
+
+  function showWish() {
+    const wish = document.getElementById('wish');
+    wish.style.display = 'block';
+    makeConfetti();
+    setTimeout(makeConfetti, 1500);
+    setTimeout(() => {
+      document.getElementById('replay').style.display = 'inline-block';
+    }, 3000);
+  }
+
+  function replayShow() {
+    document.getElementById('wish').style.display = 'none';
+    document.getElementById('replay').style.display = 'none';
+    document.getElementById('btn').style.display = 'inline-block';
+  }
+</script>
+
+</body>
+</html>
