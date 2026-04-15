@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Birthday Surprise 🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('my/hi.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 2s ease;
+      z-index: 0;
+    }
+
+    .overlay.visible {
+      opacity: 1;
+    }
+    
+    .content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 48px;
+      font-family: Arial, sans-serif;
+      opacity: 0;
+      transition: opacity 2s ease 1s; 
+      z-index: 1;
+    }
+
+    .content.visible {
+      opacity: 1;
+    }
+
+    
+    .content h1 {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      font-size: 56px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 24px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Button -->
+  <div id="startPage">
+    <button onclick="startSurprise()">Click Me 🎁</button>
+  </div>
+
+  <!-- Video -->
+  <div id="videoPage" style="display:none;">
+    <video id="birthdayVideo" width="600">
+      <source src="birthday.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Message -->
+  <div id="messagePage" style="display:none;">
+    <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center;"><i>happy birthday monisha 🎂</i></h1>
+        <pre style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 36px;text-align: center;">many more happy returns 
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
